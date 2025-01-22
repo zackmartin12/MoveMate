@@ -36,11 +36,9 @@ module.exports = {
     },
 
     deleteSteps(sttId) {
-        return new Promise((resolve, reject) => {
-            db.query('DELETE FROM steps_tracking WHERE stt_id = ?', [sttId], (err, result) => {
-                console.log('Steps entry deleted successfully.');
-                resolve(true);
-            });
+        return db.query('DELETE FROM steps_tracking WHERE stt_id = ?', [sttId]).then(result => {
+            console.log('Steps entry deleted successfully.');
+            resolve(true);
         });
     }
 }

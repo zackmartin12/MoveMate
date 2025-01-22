@@ -37,11 +37,9 @@ module.exports = {
     },
 
     deleteSleep(sltId) {
-        return new Promise((resolve, reject) => {
-            db.query('DELETE FROM sleep_tracking WHERE slt_id = ?', [sltId], (err, result) => {
-                console.log('Sleep entry deleted successfully.');
-                resolve(true);
-            });
+        return db.query('DELETE FROM sleep_tracking WHERE slt_id = ?', [sltId]).then(result => {
+            console.log('Sleep entry deleted successfully.');
+            resolve(true);
         });
     }
 }

@@ -38,11 +38,10 @@ module.exports = {
     },
 
     deleteCalories(ctId) {
-        return new Promise((resolve, reject) => {
-            db.query('DELETE FROM calorie_tracking WHERE ct_id = ?', [ctId], (err, result) => {
-                console.log('Calorie entry deleted successfully.');
-                resolve(true);
-            });
+        return db.query('DELETE FROM calorie_tracking WHERE ct_id = ?', [ctId]).then(result => {
+            console.log('Calorie entry deleted successfully.');
+            return true;
         });
     }
+    
 }

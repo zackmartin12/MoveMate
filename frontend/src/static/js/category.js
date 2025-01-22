@@ -105,22 +105,22 @@ function createItemHTML(item) {
         switch (category) {
             case 'Calories':
                 api.deleteCalorieItem(item.id).then(() => {
-                    // todo
+                    location.reload();
                 });
                 break;
             case 'Water':
                 api.deleteWaterItem(item.id).then(() => {
-                    // todo
+                    location.reload();
                 });
                 break;
             case 'Sleep':
                 api.deleteSleepItem(item.id).then(() => {
-                    // todo
+                    location.reload();
                 });
                 break;
             case 'Steps':
                 api.deleteStepsItem(item.id).then(() => {
-                    // todo
+                    location.reload();
                 });
                 break;
         }

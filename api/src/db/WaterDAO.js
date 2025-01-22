@@ -35,11 +35,9 @@ module.exports = {
     },
 
     deleteWater(wtId) {
-        return new Promise((resolve, reject) => {
-            db.query('DELETE FROM water_tracking WHERE wt_id = ?', [wtId], (err, result) => {
-                console.log('Water entry deleted successfully.');
-                resolve(true);
-            });
+        return db.query('DELETE FROM water_tracking WHERE wt_id = ?', [wtId]).then(result => {
+            console.log('Water entry deleted successfully.');
+            resolve(true);
         });
     }
 }
